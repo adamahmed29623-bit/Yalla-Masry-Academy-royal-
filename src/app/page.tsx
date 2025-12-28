@@ -1,12 +1,7 @@
 "use client";
 import React, { createContext, useState, useContext } from 'react';
 import { Crown, ArrowLeft, ArrowRight, Star, ShieldCheck, Globe } from 'lucide-react';
-
-/**
- * 🛠️ ملاحظة للملكة:
- * تم دمج LanguageProvider هنا لضمان عمل المعاينة فوزاً وتجاوز خطأ الـ Import.
- * عند النشر النهائي، يمكنكِ فصل السياق (Context) في ملف مستقل كما خططنا.
- */
+import { useRouter } from 'next/navigation'; // أضفتُ هذا السطر للربط بين الصفحات
 
 // --- 1. LANGUAGE CONTEXT (سياق اللغة) ---
 const LanguageContext = createContext();
@@ -141,9 +136,10 @@ const HomeContent = ({ onStart }) => {
 
 // --- 3. EXPORT APP (المكون النهائي) ---
 export default function App() {
+  const router = useRouter(); // محرك الانتقال الملكي
+
   const handleStart = () => {
-    console.log("Journey Started!");
-    // هنا يمكن إضافة الانتقال لصفحة المعلمات
+    router.push('/teachers'); // يوجه الطالبة مباشرة لرواق المعلمات
   };
 
   return (
