@@ -1,3 +1,4 @@
+"use client";
 import React, { createContext, useState, useContext } from 'react';
 import { Crown, ArrowLeft, ArrowRight, Star, ShieldCheck, Globe } from 'lucide-react';
 
